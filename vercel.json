@@ -1,0 +1,11 @@
+{
+  "rewrites": [
+    { "source": "/", "destination": "/" },
+    { "source": "/overview", "destination": "/" },
+    { "source": "/terminal", "destination": "/" },
+    { "source": "/liquidity-map", "destination": "/" },
+    { "source": "/flows", "destination": "/" },
+    { "source": "/developers", "destination": "/" },
+    { "source": "/support", "destination": "/" }
+  ]
+}
