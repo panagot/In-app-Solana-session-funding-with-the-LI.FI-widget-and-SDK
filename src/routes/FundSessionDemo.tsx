@@ -367,9 +367,9 @@ export function FundSessionDemo() {
 
       <div className="mx-auto mt-8 max-w-3xl space-y-4">
         <p className="text-center text-sm text-slate-600">
-          <strong className="text-slate-900">Fund session…</strong> on the Neon Drift card opens the modal (simulate vs
-          real terminal). The three <strong className="text-slate-900">execution previews</strong> are directly above
-          this note — use <strong className="text-slate-900">Replay flow</strong> to compare routing profiles.
+          <strong className="text-slate-900">Fund session…</strong> on the Neon Drift card opens this modal (preview vs
+          real terminal). The three <strong className="text-slate-900">execution previews</strong> are above—use{' '}
+          <strong className="text-slate-900">Replay flow</strong> to compare how different routes could feel in your UI.
         </p>
         <details
           ref={patternDetailsRef}
@@ -377,13 +377,13 @@ export function FundSessionDemo() {
           className="rounded-xl border border-slate-200/90 bg-slate-50/90 px-4 py-2 text-sm text-slate-600 open:pb-3 [&>summary]:cursor-pointer [&>summary]:list-none [&>summary]:select-none [&>summary::-webkit-details-marker]:hidden [&>summary]:font-medium [&>summary]:text-slate-900"
         >
           <summary className="st-focus rounded-md py-1 outline-none">
-            About this fund-session pattern (games, media, web & more)
+            About the fund-session pattern (games, media, web, and more)
           </summary>
           <p className="mt-2 border-t border-slate-200/80 pt-3 text-[0.95rem] leading-relaxed">
             <span className="font-semibold text-slate-900">Fund session</span> is a reusable pattern: keep people inside
-            your product while LI.FI tops up the right chain—whether you ship a game, a live or on-demand video surface,
-            a membership site, a creator hub, or any flow where Solana is the destination but liquidity starts elsewhere.
-            The Neon Drift sample is fictional; the LI.FI tab and terminal use the real widget.
+            your product while LI.FI moves funds to the chain your rules care about—games, live or on-demand video,
+            memberships, creator tools, or any flow where Solana is the destination but spending money starts elsewhere.
+            Neon Drift is fictional; the LI.FI tab and terminal use the real widget.
           </p>
         </details>
       </div>
@@ -423,10 +423,10 @@ export function FundSessionDemo() {
                 Fund this session
               </h2>
               <p id={descId} className="mt-1.5 text-sm leading-relaxed text-slate-600">
-                Bring value to <strong className="text-slate-900">Solana</strong> without sending people to an exchange
-                tab. Simulate a successful settlement here, or open the real LI.FI widget—same pattern you would embed
-                beside a level, a paywall, a clip checkout, or any gated step. In the terminal you will see live quotes,
-                fees, and route steps before signing.
+                Move value to <strong className="text-slate-900">Solana</strong> without sending people to an external
+                bridge tab. Simulate a happy path here, or open the real LI.FI widget—the same pattern you would embed
+                next to a level, paywall, clip checkout, or other gated step. In the terminal you get live quotes, fees,
+                and route steps before you sign.
               </p>
             </div>
             <div className="flex flex-col gap-3 px-5 py-4">

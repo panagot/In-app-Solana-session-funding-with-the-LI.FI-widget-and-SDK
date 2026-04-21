@@ -7,7 +7,7 @@ export function Support() {
       <PageHeader
         kicker="Trust"
         title="Risk & support"
-        description="Solstice Terminal is a demonstration front-end. It does not custody funds, guarantee quotes, or endorse any third-party venue surfaced through LI.FI."
+        description="Solstice Terminal is a demo front end. It does not custody funds, guarantee quotes, or endorse any third-party venue that LI.FI may surface."
         actions={
           <>
             <Link to="/terminal" className="st-btn-primary">
@@ -22,12 +22,7 @@ export function Support() {
 
       <section className="st-card border-amber-200/90">
         <div className="st-card-inner space-y-4 p-6 sm:p-8">
-          <div className="flex items-center gap-2">
-            <span className="text-lg" aria-hidden>
-              ⚠
-            </span>
-            <h2 className="text-base font-semibold text-amber-950">Operational risks</h2>
-          </div>
+          <h2 className="text-base font-semibold text-amber-950">Operational risks</h2>
           <ul className="space-y-3 text-sm leading-relaxed text-slate-700">
             <li className="flex gap-3 rounded-lg border border-amber-100 bg-amber-50/80 px-3 py-2.5">
               <span className="shrink-0 font-mono text-amber-700">!</span>
@@ -53,6 +48,8 @@ export function Support() {
             <a
               className="font-medium text-slate-900 underline decoration-slate-300 underline-offset-2 hover:decoration-slate-500"
               href="https://li.fi"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               li.fi
             </a>
@@ -60,6 +57,8 @@ export function Support() {
             <a
               className="font-medium text-slate-900 underline decoration-slate-300 underline-offset-2 hover:decoration-slate-500"
               href="https://docs.li.fi"
+              target="_blank"
+              rel="noopener noreferrer"
             >
               documentation
             </a>
@@ -90,9 +89,9 @@ export function Support() {
       <section className="rounded-2xl border border-dashed border-slate-200 bg-slate-50/80 px-5 py-5 sm:px-6">
         <p className="text-sm font-medium text-slate-900">Hackathon / judging</p>
         <p className="mt-2 text-sm leading-relaxed text-slate-600">
-          Follow the repository README to run locally, then walk Home → Fund session → Open LI.FI terminal for the full
-          demo path. The fund-session sample is intentionally generic—map it to your own game, video, or web use case. Use{' '}
-          <code className="st-code">?tab=lifi</code> on Home for the stats overview.
+          Follow the README to run locally, then walk <strong className="font-medium text-slate-800">Home → Fund session → Terminal</strong>{' '}
+          for the full demo path. The Neon Drift sample is intentionally generic—map it to your own game, video, or web
+          product. On Home, add <code className="st-code">?tab=lifi</code> for the live LI.FI index view.
         </p>
       </section>
     </div>

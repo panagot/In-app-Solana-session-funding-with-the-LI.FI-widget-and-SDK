@@ -160,9 +160,9 @@ export function LiFiTerminal() {
             </div>
           </div>
           <div className="st-card-inner border-b border-slate-100 bg-slate-50/90 px-3 py-3 text-xs leading-relaxed text-slate-600 sm:px-4">
-            <strong className="text-slate-800">Non-custodial.</strong> LI.FI aggregates routes and liquidity; you approve
-            each transaction in your own wallet—nothing is moved without your signature. Review every amount, fee, and
-            hop in the widget before confirming.{' '}
+            <strong className="text-slate-800">Non-custodial.</strong> LI.FI finds routes and liquidity; you approve
+            each transaction in your own wallet—nothing moves without your signature. Check every amount, fee, and hop
+            in the widget before you confirm.{' '}
             <a
               href="https://docs.li.fi/"
               target="_blank"

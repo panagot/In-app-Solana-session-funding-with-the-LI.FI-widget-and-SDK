@@ -67,7 +67,7 @@ export function LiquidityMap() {
       <PageHeader
         kicker="Architecture"
         title="Liquidity map"
-        description="Where Solstice Terminal sits in the stack: your wallets stay primary, LI.FI handles routing and transaction packaging, and underlying venues settle flow."
+        description="Where this app sits in the stack: users keep custody of their keys, LI.FI supplies quotes and routes across venues, and bridges or DEXs settle the movement on each chain."
         actions={
           <>
             <Link to="/terminal" className="st-btn-primary">
@@ -84,7 +84,7 @@ export function LiquidityMap() {
         <div className="st-card-inner border-b border-slate-100 px-4 py-3 sm:px-6">
           <p className="text-xs font-medium uppercase tracking-wider text-slate-500">Reference</p>
           <p className="mt-1 text-sm text-slate-600">
-            High-level topology only — route inventory changes with LI.FI releases.
+            High-level diagram only—available routes change as LI.FI adds or updates integrations.
           </p>
         </div>
         <div className="st-card-inner p-4 sm:p-6">
@@ -117,10 +117,10 @@ export function LiquidityMap() {
         </div>
         <div className="st-card border-t border-slate-200">
           <div className="st-card-inner p-5 sm:p-6">
-            <h3 className="text-sm font-semibold text-slate-900">Why aggregation</h3>
+            <h3 className="text-sm font-semibold text-slate-900">Why use an aggregator</h3>
             <p className="mt-3 text-sm leading-relaxed text-slate-600">
-              Bridge and DEX inventory changes weekly. LI.FI centralizes discovery, slippage guards, and status
-              tracking so your interface does not fork every time a venue ships a new route.
+              Bridge and DEX options change often. LI.FI centralizes discovery, slippage limits, and status updates so
+              your product does not have to chase every new venue or route by hand.
             </p>
           </div>
         </div>

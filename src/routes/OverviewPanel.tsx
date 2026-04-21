@@ -76,8 +76,8 @@ export function OverviewPanel() {
 
       <PageHeader
         kicker="LI.FI · Solana frontier"
-        title="Institutional-grade routing for Solana liquidity."
-        description="Same LI.FI engine as the fund-session pattern on Home—this tab focuses on live index telemetry from the SDK (chains, tools, ecosystem chart). Open the terminal to connect a wallet, pick a quick intent, and route with full transparency."
+        title="Live LI.FI index for Solana work"
+        description="Same LI.FI engine as the fund-session pattern on Home—here you see live index data from the SDK (chains, tools, ecosystem chart). Open the terminal to connect a wallet, pick a quick intent, and review every step before you sign."
         actions={
           <>
             <Link to="/terminal" className="st-btn-primary">
@@ -105,7 +105,7 @@ export function OverviewPanel() {
         <ul className="mt-3 grid gap-3 text-sm text-slate-700 sm:grid-cols-3">
           <li className="rounded-lg border border-slate-200/80 bg-white/90 px-3 py-2.5 leading-snug">
             <strong className="text-slate-900">SDK index</strong> — <code className="st-code">getChains</code> /{' '}
-            <code className="st-code">getTools</code> against production LI.FI APIs (same surface as telemetry).
+            <code className="st-code">getTools</code> against production LI.FI APIs (same calls you would use for dashboards).
           </li>
           <li className="rounded-lg border border-slate-200/80 bg-white/90 px-3 py-2.5 leading-snug">
             <strong className="text-slate-900">Widget parity</strong> — Terminal embed uses the same integrator and{' '}
@@ -136,7 +136,7 @@ export function OverviewPanel() {
                 <span className="text-slate-400" aria-hidden>
                   ◆
                 </span>
-                <span>One integration for bridges, DEXs, and Solvers.</span>
+                <span>One integration for bridges, DEXs, and solver-style routes.</span>
               </li>
               <li className="flex gap-2 rounded-xl border border-slate-200/90 bg-slate-50 px-3 py-2.5">
                 <span className="text-slate-400" aria-hidden>
@@ -154,8 +154,7 @@ export function OverviewPanel() {
             </div>
             <p className="mt-3 text-sm leading-relaxed text-slate-600">
               Pulled with <code className="st-code">getChains</code> /{' '}
-              <code className="st-code">getTools</code> — identical surface area to production
-              telemetry.
+              <code className="st-code">getTools</code>—the same API surface you would use for production telemetry.
             </p>
             <dl className="mt-6 space-y-3 rounded-xl border border-slate-200/90 bg-slate-50 p-4 font-mono text-xs">
               <div className="flex items-center justify-between gap-4 border-b border-slate-200/80 pb-3">

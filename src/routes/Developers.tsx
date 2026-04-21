@@ -12,8 +12,8 @@ export function Developers() {
     <div className="space-y-10 lg:space-y-12">
       <PageHeader
         kicker="Integration"
-        title="Developer integration"
-        description="Patterns in this repository are structured so a production Solana team can lift them into their own app shell with minimal rework—whether you ship a game, a media surface, or a web app. Same integrator and env keys power the embedded widget and any SDK calls you add alongside it."
+        title="Integrate LI.FI"
+        description="This repo is laid out so you can copy patterns into your own shell with little rework—games, media, or web. The same integrator string and env keys power the embedded widget and any SDK calls you add next to it."
         actions={
           <>
             <a href="https://docs.li.fi/widget/install-widget" target="_blank" rel="noopener noreferrer" className="st-btn-primary">
@@ -81,7 +81,7 @@ VITE_POLYGON_RPC_URL=`}
         <div className="st-card-inner p-6 sm:p-8">
           <h2 className="text-lg font-semibold text-slate-900">Official references</h2>
           <p className="mt-2 max-w-2xl text-sm text-slate-600">
-            LI.FI maintains widget, SDK, and architecture docs — bookmark these when extending beyond the terminal shell.
+            LI.FI maintains widget, SDK, and architecture docs—bookmark these when you extend beyond this demo shell.
           </p>
           <ul className="mt-6 grid gap-2 sm:grid-cols-2">
             {[
@@ -89,7 +89,7 @@ VITE_POLYGON_RPC_URL=`}
               ['Configure widget', 'https://docs.li.fi/widget/configure-widget'],
               ['Wallet management', 'https://docs.li.fi/widget/wallet-management'],
               ['Solana architecture', 'https://docs.li.fi/introduction/lifi-architecture/solana-overview'],
-              ['docs index (llms.txt)', 'https://docs.li.fi/llms.txt'],
+              ['Docs index for AI tools (llms.txt)', 'https://docs.li.fi/llms.txt'],
             ].map(([label, href]) => (
               <li key={href}>
                 <a

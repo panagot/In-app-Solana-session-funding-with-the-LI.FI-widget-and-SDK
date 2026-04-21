@@ -32,9 +32,9 @@ export function Flows() {
   return (
     <div className="space-y-10 lg:space-y-12">
       <PageHeader
-        kicker="Journeys"
-        title="Representative flows"
-        description="These journeys mirror what you can execute inside the terminal. Actual steps depend on live liquidity, venue availability, and wallet capabilities."
+        kicker="User flows"
+        title="Typical journeys"
+        description="These steps mirror what users can run in the terminal. Real flows depend on live liquidity, which venues are available, and the wallet they connect."
         actions={
           <>
             <Link to="/terminal" className="st-btn-primary">
@@ -88,10 +88,11 @@ export function Flows() {
       <div className="st-card">
         <div className="st-card-inner flex flex-col gap-4 p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
           <div>
-            <h2 className="text-lg font-semibold text-slate-900">Run a flow in the widget</h2>
+            <h2 className="text-lg font-semibold text-slate-900">Try it in the widget</h2>
             <p className="mt-1 max-w-xl text-sm text-slate-600">
-              Use quick intents on the terminal page to pre-fill common Solana routes, or start from the fund-session
-              sample on Home—the same orchestration idea whether you ship a game client, a video surface, or a web app.
+              On the terminal page, use <strong className="font-medium text-slate-800">quick intents</strong> to
+              pre-fill common Solana routes. On Home, open <strong className="font-medium text-slate-800">Fund session</strong>{' '}
+              to see the same orchestration pattern for a game, video product, or web app.
             </p>
           </div>
           <div className="flex shrink-0 flex-wrap gap-3">

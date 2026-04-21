@@ -44,10 +44,10 @@ export function TerminalPage() {
         title="Cross-chain terminal"
         description={
           <>
-            Embedded <code className="st-code">LiFiWidget</code> with Solana-first quick intents. Intents sync to the
-            query string (<code className="st-code">?intent=fundSolana</code> and friends) for shareable deep links.{' '}
-            <code className="st-code">buildUrl</code> stays on for widget state in the URL; optional RPCs go through{' '}
-            <code className="st-code">sdkConfig.rpcUrls</code>.
+            Embedded <code className="st-code">LiFiWidget</code> with Solana-first quick intents. Presets write to the
+            query string (for example <code className="st-code">?intent=fundSolana</code>) so links are shareable.{' '}
+            <code className="st-code">buildUrl</code> keeps widget state in the URL; optional RPC URLs come from{' '}
+            <code className="st-code">sdkConfig.rpcUrls</code> in env.
           </>
         }
         actions={
@@ -71,8 +71,7 @@ export function TerminalPage() {
         <div className="st-card-inner flex flex-col gap-2 px-5 py-4 sm:flex-row sm:items-start sm:justify-between sm:gap-8 sm:px-6 sm:py-5">
           <p className="shrink-0 text-sm font-medium text-slate-900">Before you route</p>
           <p className="max-w-2xl text-sm leading-relaxed text-slate-600">
-            Connect a wallet in the widget, confirm chain and token details, then sign only what you expect. Funds
-            stay under the user’s keys—LI.FI does not custody assets; it routes what you approve. The same embed pattern
+            Connect a wallet in the widget, confirm chain and token details, then sign only what you expect.             Funds stay in wallets the user controls—LI.FI does not custody assets; it routes what they approve. The same embed pattern
             fits games, video or streaming checkouts, web memberships, and other Solana-first surfaces. For the guided
             sample with preview-only balances, use{' '}
             <Link to="/" className="font-medium text-slate-900 underline decoration-slate-300 underline-offset-2 hover:decoration-slate-500">
@@ -88,16 +87,16 @@ export function TerminalPage() {
         aria-labelledby="terminal-proof-heading"
       >
         <h2 id="terminal-proof-heading" className="text-xs font-bold uppercase tracking-[0.18em] text-slate-500">
-          Live integration proof points
+          What this page shows
         </h2>
         <ul className="mt-3 grid gap-3 text-sm text-slate-700 sm:grid-cols-3">
           <li className="rounded-lg border border-slate-200/80 bg-white/90 px-3 py-2.5 leading-snug">
-            <strong className="text-slate-900">LiFiWidget</strong> — Production widget build with{' '}
-            <code className="st-code">buildUrl</code> so wallet + route state serialize into the address bar.
+            <strong className="text-slate-900">LiFiWidget</strong> — Production widget with{' '}
+            <code className="st-code">buildUrl</code> so wallet and route state stay reflected in the address bar.
           </li>
           <li className="rounded-lg border border-slate-200/80 bg-white/90 px-3 py-2.5 leading-snug">
-            <strong className="text-slate-900">Quick intents</strong> — Presets write <code className="st-code">?intent=</code>{' '}
-            (e.g. <code className="st-code">fundSolana</code>) for judges and support to reproduce paths.
+            <strong className="text-slate-900">Quick intents</strong> — Presets set <code className="st-code">?intent=</code>{' '}
+            (for example <code className="st-code">fundSolana</code>) so judges or support can reproduce a path from a link.
           </li>
           <li className="rounded-lg border border-slate-200/80 bg-white/90 px-3 py-2.5 leading-snug">
             <strong className="text-slate-900">RPC hooks</strong> — Optional <code className="st-code">sdkConfig.rpcUrls</code>{' '}

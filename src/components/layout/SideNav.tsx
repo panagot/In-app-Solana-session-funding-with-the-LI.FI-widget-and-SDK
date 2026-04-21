@@ -13,7 +13,7 @@ const groups: { title: string; items: NavItem[] }[] = [
     title: 'Product',
     items: [
       { to: '/', label: 'Home', end: true },
-      { to: '/terminal', label: 'Execution terminal' },
+      { to: '/terminal', label: 'Terminal' },
       { to: '/liquidity-map', label: 'Liquidity map' },
       { to: '/flows', label: 'User flows' },
       { to: '/developers', label: 'Integration' },
