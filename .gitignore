@@ -25,3 +25,7 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Local / internal (not for distribution)
+screenshots/
+AI_REVIEW_PROMPT.md

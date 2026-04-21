@@ -59,11 +59,30 @@ export function OverviewPanel() {
           className="rounded-2xl border border-amber-200 bg-amber-50 px-4 py-3 sm:flex sm:items-center sm:justify-between sm:gap-4"
           role="status"
         >
-          <p className="text-sm text-amber-950">
-            Could not reach the LI.FI index (<code className="st-code">getChains</code> /{' '}
-            <code className="st-code">getTools</code>). Stats and the chart may be stale or empty until the request
-            succeeds.
-          </p>
+          <div className="text-sm text-amber-950">
+            <p>
+              Could not reach the LI.FI index (<code className="st-code">getChains</code> /{' '}
+              <code className="st-code">getTools</code>). Stats and the chart stay empty until the request succeeds.
+            </p>
+            <ul className="mt-2 list-disc space-y-1 pl-5 text-xs leading-relaxed text-amber-900/95">
+              <li>
+                Confirm <code className="st-code">VITE_LIFI_INTEGRATOR</code> is set in your deployment environment
+                variables.
+              </li>
+              <li>
+                Add <code className="st-code">VITE_LIFI_API_KEY</code> for higher rate limits if traffic spikes (
+                <a
+                  href="https://docs.li.fi/api-reference/rate-limits"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium underline decoration-amber-400 underline-offset-2 hover:decoration-amber-600"
+                >
+                  docs
+                </a>
+                ).
+              </li>
+            </ul>
+          </div>
           <button
             type="button"
             className="st-focus mt-3 shrink-0 rounded-full border border-amber-300 bg-white px-4 py-2 text-xs font-semibold text-amber-950 transition hover:bg-amber-100 sm:mt-0"

@@ -1,76 +1,53 @@
 # Solstice Terminal
 
-## Proposal
+**In-app funding for Solana sessions:** keep users on your screen while LI.FI moves value onto Solana (fees, USDC gates, checkouts). Built for the **LI.FI × Solana Frontier** track.
 
-Let people stay inside your product while you move liquidity onto Solana in the same session, so they can keep playing, watching, browsing, or checking out, without leaving for a bridge site or another tab.
+---
 
-"Session-native funding" with LI.FI: when your experience needs Solana-native balances (fees, USDC for a gate, in-app purchases, etc.) but the user's spending money sits on another chain (often an L2 like Base, or Ethereum, etc.), you embed LI.FI in your UI. You surface a short "fund this session" flow next to the moment of need; LI.FI handles quotes, route selection, and execution; the user returns to the same surface with balances that satisfy your rules.
+## Overview
 
-Solana-first **liquidity terminal** for the LI.FI Frontier / Colosseum track. **Home** opens with **Fund session**
-first: a reusable “top up this visit on Solana” pattern illustrated with the fictional **Neon Drift** surface. The
-same flow applies to games, video or live experiences, membership web apps, creator tools, and other products where
-users need on-chain float without leaving your UI. The **LI.FI** tab holds live index stats, charts, and narrative.
-**Navigation is sidebar-only** on desktop (plus a slim mobile bar: menu · title · Docs); all in-app routes live in the
-left rail; no duplicate top link row.
+1. **Problem:** Solana apps need SOL or USDC on-chain, but users often hold spendable balance on Base, Ethereum, or elsewhere. Sending them to a generic bridge tab breaks the session.
+2. **Approach:** Embed **LI.FI** in your UI as a short **“fund this visit”** step, then bring them back to the same surface with balances that pass your checks.
+3. **LI.FI integration:** the **LiFiWidget** on **Terminal** is the live execution surface; the **LI.FI SDK** (`getChains`, `getTools`) powers the **LI.FI** tab with live index data. Quick intents use **`?intent=`** in the URL so presets are **shareable** (use **Copy shareable terminal link** in the terminal sidebar).
+4. **Demo layout:** **Home** uses **Neon Drift**, a fictional surface with **preview** balances and simulated logs to show the *pattern*. **Terminal** is the **real widget** with wallet signing.
 
-## Quick start
+---
 
-```bash
-cp .env.example .env
-# On Windows, if postinstall scripts fail (optional native hooks), use:
-npm install --ignore-scripts
+## LI.FI integration (at a glance)
 
-# Vite 8 / Rolldown may require an explicit protobuf subpath:
-# (@protobufjs/aspromise is already listed in package.json)
-npm run dev
-```
+| Capability | In this project |
+|------------|-----------------|
+| **Inbound to Solana** | Main flow: fund the session on Solana without leaving the host app. |
+| **Cross-chain swaps** | Same **LiFiWidget** supports swaps and exits across routes LI.FI aggregates. |
+| **SDK** | Live **chains + tools** stats and ecosystem chart on **Home → LI.FI** (`/?tab=lifi`). |
 
-Open the URL Vite prints (often `http://localhost:5173`; another process may bump the port).
+---
 
-## Environment
+## Walk through the live app
 
-See [.env.example](.env.example). At minimum set `VITE_LIFI_INTEGRATOR`. For reliable Solana
-simulation and balances in the widget, add `VITE_SOLANA_RPC_URL` and major EVM RPC URLs.
+| Step | What to do |
+|------|------------|
+| 1 | Open **[Live app](https://in-app-solana-session-funding-with.vercel.app/)** → **Home** → **Fund session** tab. Read the sidebar tagline and the three-step strip next to the tabs. |
+| 2 | Scroll to **Neon Drift** (preview). Open **Fund session…**, optionally **Simulate success**, then **Open in terminal** (or use quick intents on **Terminal**). |
+| 3 | On **Terminal**, connect a wallet in the widget, confirm pre-filled route intent, use **LI.FI Explorer** if you want to cross-check routes off-site. |
+| 4 | Back on **Home**, open the **LI.FI** tab (`/?tab=lifi`) for SDK-backed index tiles and chart. |
 
-## 60-second demo walkthrough
+**Widget intents in this repo:** `fundSolana`, `exitSolana`, `solSwap`, `bridgePreview`.
 
-1. **Home → Fund session:** use **Fund session…**, pick a path; you should land on `/terminal?intent=…`
-   with the matching quick intent. Old `/demo.html` links redirect to `/`.
-2. **Home → LI.FI tab** (or `/?tab=lifi`, or `/overview`): confirm live stat tiles populate (chains +
-   tools from LI.FI APIs) and the ecosystem chart renders.
-3. **Execution terminal:** try **Fund Solana** or `/terminal?intent=bridgePreview`; connect a wallet
-   when prompted and confirm the widget pre-fills the expected chains and tokens.
-4. **Reset to widget defaults:** clears the preset and removes `?intent=` from the URL while keeping
-   the light shell and your integrator string.
-5. **Liquidity map:** review the SVG architecture and Solana identifier callouts (`chainId`,
-   native SOL sentinel, wSOL mint).
-6. **Risk & support:** skim operational risks and outbound support links.
+---
 
-Supported `intent` values: `fundSolana`, `exitSolana`, `solSwap`, `bridgePreview`.
+## Links
 
-## Hackathon submission (quick reference)
+| Item | URL |
+|------|-----|
+| **Live demo** | [Vercel](https://in-app-solana-session-funding-with.vercel.app/) |
+| **Source** | [GitHub](https://github.com/panagot/In-app-Solana-session-funding-with-the-LI.FI-widget-and-SDK) |
+| **Env reference** | [.env.example](.env.example) (forks or redeploys) |
 
-| Item | Link or note |
-|------|----------------|
-| **Live demo** | [Vercel deploy](https://in-app-solana-session-funding-with.vercel.app/) (set env in project settings from `.env.example`) |
-| **Source** | [GitHub repository](https://github.com/panagot/In-app-Solana-session-funding-with-the-LI.FI-widget-and-SDK) |
-| **What to show in ~60s** | Follow **60-second demo walkthrough** above: Home → Fund session → Terminal with `?intent=`; LI.FI tab for live index; mention **Proposal** at top of this README for the product thesis |
-| **LI.FI proof** | Real **LiFiWidget** on `/terminal`; Home card uses **preview** balances and simulated logs, so it is clear the pattern demo is separate from the live widget |
+---
 
-## Stack
+## Deploy configuration
 
-- Vite + React 19 + TypeScript
-- Tailwind CSS
-- LI.FI Widget + SDK · Wagmi v2 · Solana wallet adapter · Mysten dapp-kit · Bigmi (Bitcoin)
+Set **`VITE_LIFI_INTEGRATOR`** on the host (required for attribution). Adding **`VITE_LIFI_API_KEY`** and **RPC URLs** helps avoid empty or slow index data under load; see [rate limits](https://docs.li.fi/api-reference/rate-limits).
 
-## Deploy (Vercel)
-
-1. Connect the repository to Vercel.
-2. Add the same environment variables as in `.env.example`.
-3. Framework preset: Vite. Output: `dist`.
-4. SPA routing is handled by [vercel.json](vercel.json) (explicit app routes only so `/demo.html`,
-   `/assets/*`, and other static files are not rewritten to the SPA shell).
-
-## License
-
-MIT. Demo code for hackathon submission.
+MIT.

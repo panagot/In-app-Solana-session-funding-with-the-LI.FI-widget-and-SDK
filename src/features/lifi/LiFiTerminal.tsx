@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from 'react'
+import { useCallback, useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router-dom'
 import { LiFiWidget } from '@lifi/widget'
 import type { QuickIntentId } from './widgetBaseConfig'
@@ -45,6 +45,7 @@ const intents: { id: QuickIntentId; title: string; body: string; step: string }[
 
 export function LiFiTerminal() {
   const [searchParams, setSearchParams] = useSearchParams()
+  const [copyState, setCopyState] = useState<'idle' | 'ok' | 'fail'>('idle')
   const intent = parseQuickIntentParam(searchParams.get('intent'))
 
   const config = useMemo(() => {
@@ -78,6 +79,20 @@ export function LiFiTerminal() {
     )
   }, [setSearchParams])
 
+  const copyShareableUrl = useCallback(() => {
+    void (async () => {
+      const url = window.location.href
+      try {
+        await navigator.clipboard.writeText(url)
+        setCopyState('ok')
+        window.setTimeout(() => setCopyState('idle'), 2500)
+      } catch {
+        setCopyState('fail')
+        window.setTimeout(() => setCopyState('idle'), 3500)
+      }
+    })()
+  }, [])
+
   return (
     <div className="grid min-w-0 gap-6 overflow-x-auto lg:grid-cols-[minmax(280px,340px)_1fr] lg:gap-8 lg:overflow-x-visible">
       <aside className="st-card h-fit lg:sticky lg:top-24">
@@ -106,6 +121,10 @@ export function LiFiTerminal() {
               </p>
             )}
           </div>
+          <p className="rounded-lg border border-slate-200/90 bg-slate-50 px-2.5 py-2 font-mono text-[10px] leading-relaxed text-slate-600">
+            <span className="font-semibold uppercase tracking-wider text-slate-500">Integrator</span>{' '}
+            <span className="text-slate-800">{INTEGRATOR}</span>
+          </p>
           <ul className="space-y-2.5">
             {intents.map((item) => {
               const active = intent === item.id
@@ -144,6 +163,18 @@ export function LiFiTerminal() {
           </ul>
           <button
             type="button"
+            onClick={copyShareableUrl}
+            aria-label="Copy full URL of this terminal page, including intent query if set"
+            className="st-focus min-h-[44px] w-full rounded-xl border border-slate-200 bg-white py-2.5 text-xs font-semibold text-slate-800 shadow-sm transition hover:border-slate-300 hover:bg-slate-50"
+          >
+            {copyState === 'ok'
+              ? 'Link copied'
+              : copyState === 'fail'
+                ? 'Copy blocked (try manually)'
+                : 'Copy shareable terminal link'}
+          </button>
+          <button
+            type="button"
             onClick={clearIntent}
             className="st-focus min-h-[44px] w-full rounded-xl border border-dashed border-slate-300 py-2.5 text-xs font-medium text-slate-600 transition hover:border-slate-400 hover:bg-slate-50 hover:text-slate-900"
           >
@@ -158,6 +189,14 @@ export function LiFiTerminal() {
               <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Live widget</p>
               <p className="text-xs text-slate-600">LI.FI UI below: connect and route in place.</p>
             </div>
+            <a
+              href="https://explorer.li.fi/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="st-focus shrink-0 rounded-full border border-slate-200 bg-white px-3 py-1.5 text-[11px] font-medium text-slate-700 transition hover:border-slate-300 hover:text-slate-900"
+            >
+              LI.FI Explorer
+            </a>
           </div>
           <div className="st-card-inner border-b border-slate-100 bg-slate-50/90 px-3 py-3 text-xs leading-relaxed text-slate-600 sm:px-4">
             <strong className="text-slate-800">Non-custodial.</strong> LI.FI finds routes and liquidity; you approve
