@@ -26,8 +26,8 @@ const pathPresets: {
     badge: 'Save fees',
     desc: (
       <>
-        Opens a preset from <strong className="text-slate-800">Ethereum</strong> toward Solana —
-        compare quotes against your Base balance in the widget.
+        Opens a preset from <strong className="text-slate-800">Ethereum</strong> toward Solana, then compare quotes
+        against your Base balance in the widget.
       </>
     ),
   },
@@ -36,11 +36,11 @@ const pathPresets: {
     intent: '/terminal?intent=fundSolana',
     name: 'Balanced',
     badge: 'Default',
-    desc: 'Good default for most audiences — LI.FI picks a strong overall route.',
+    desc: 'Good default for most audiences. LI.FI picks a strong overall route.',
   },
 ]
 
-/** In-app “Fund session” sample (Neon Drift) — former standalone demo.html. */
+/** In-app “Fund session” sample (Neon Drift); former standalone demo.html. */
 export function FundSessionDemo() {
   const navigate = useNavigate()
   const [open, setOpen] = useState(false)
@@ -182,7 +182,7 @@ export function FundSessionDemo() {
     : { value: '420', ok: false as const }
 
   return (
-    <div className="mx-auto max-w-4xl min-w-0 overflow-x-auto pb-8">
+    <div className="w-full min-w-0 overflow-x-auto pb-8">
       <div className="min-w-0 overflow-hidden rounded-[20px] border border-slate-200/90 bg-white shadow-[0_12px_48px_rgba(0,0,0,0.06)] ring-1 ring-slate-900/[0.04]">
         <div className="flex flex-col gap-2 border-b border-slate-200/80 bg-slate-50/95 px-3 py-2.5 sm:flex-row sm:items-center sm:justify-between sm:px-4">
           <span className="text-xs leading-snug text-slate-600">
@@ -269,7 +269,7 @@ export function FundSessionDemo() {
               <h2 className="mb-1.5 text-sm font-bold uppercase tracking-[0.08em] text-slate-500">Your surface</h2>
               <p className="mx-auto mb-3 max-w-[320px] text-sm leading-snug text-slate-600">
                 {gateUnlocked
-                  ? 'Solana side looks good for this demo—enough SOL for fees and enough USDC for the paywall.'
+                  ? 'Solana side looks good for this demo: enough SOL for fees and enough USDC for the paywall.'
                   : 'Continue stays off until this surface sees enough on Solana: about 0.02 SOL for fees and 10 USDC for the example paywall (your real app would set its own numbers).'}
               </p>
               <div className="flex flex-wrap justify-center gap-2">
@@ -278,8 +278,8 @@ export function FundSessionDemo() {
                   disabled={!gateUnlocked}
                   aria-label={
                     gateUnlocked
-                      ? 'Continue — Solana gate requirements met'
-                      : 'Continue — locked until about 0.02 SOL plus 10 USDC on Solana for this demo gate'
+                      ? 'Continue: Solana gate requirements met'
+                      : 'Continue: locked until about 0.02 SOL plus 10 USDC on Solana for this demo gate'
                   }
                   className={`min-h-[44px] rounded-full px-5 py-2.5 text-sm font-semibold transition ${
                     gateUnlocked
@@ -287,7 +287,7 @@ export function FundSessionDemo() {
                       : 'cursor-not-allowed bg-slate-200 text-slate-500 opacity-80'
                   }`}
                 >
-                  Continue {gateUnlocked ? '— go' : '— locked'}
+                  Continue {gateUnlocked ? '(ready)' : '(locked)'}
                 </button>
                 <button
                   ref={fundRef}
@@ -312,7 +312,7 @@ export function FundSessionDemo() {
                 <strong className="block text-sm text-slate-900">Example paywall on Solana</strong>
                 <p className="mt-1.5 text-sm leading-relaxed text-slate-600">
                   Your product logic might require <span className="font-medium text-slate-900">10 USDC</span> on
-                  Solana plus a little <span className="font-medium text-slate-900">SOL</span> for fees—same idea as a
+                  Solana plus a little <span className="font-medium text-slate-900">SOL</span> for fees, same idea as a
                   game gate, clip purchase, or membership check.
                 </p>
               </div>
@@ -365,10 +365,10 @@ export function FundSessionDemo() {
         onReplay={handleReplay}
       />
 
-      <div className="mx-auto mt-8 max-w-3xl space-y-4">
-        <p className="text-center text-sm text-slate-600">
+      <div className="mt-8 w-full max-w-3xl space-y-4">
+        <p className="text-sm text-slate-600 sm:text-balance">
           <strong className="text-slate-900">Fund session…</strong> on the Neon Drift card opens this modal (preview vs
-          real terminal). The three <strong className="text-slate-900">execution previews</strong> are above—use{' '}
+          real terminal). The three <strong className="text-slate-900">execution previews</strong> are above. Use{' '}
           <strong className="text-slate-900">Replay flow</strong> to compare how different routes could feel in your UI.
         </p>
         <details
@@ -381,14 +381,14 @@ export function FundSessionDemo() {
           </summary>
           <p className="mt-2 border-t border-slate-200/80 pt-3 text-[0.95rem] leading-relaxed">
             <span className="font-semibold text-slate-900">Fund session</span> is a reusable pattern: keep people inside
-            your product while LI.FI moves funds to the chain your rules care about—games, live or on-demand video,
+            your product while LI.FI moves funds to the chain your rules care about: games, live or on-demand video,
             memberships, creator tools, or any flow where Solana is the destination but spending money starts elsewhere.
             Neon Drift is fictional; the LI.FI tab and terminal use the real widget.
           </p>
         </details>
       </div>
 
-      <p className="mx-auto mt-8 max-w-xl text-center font-mono text-[11px] leading-relaxed text-slate-500">
+      <p className="mt-8 max-w-xl font-mono text-[11px] leading-relaxed text-slate-500 sm:text-balance">
         Use the <strong className="text-slate-700">LI.FI</strong> tab above for live index stats and the ecosystem
         chart. <code className="st-code">?tab=lifi</code> deep-links there.
       </p>
@@ -424,7 +424,7 @@ export function FundSessionDemo() {
               </h2>
               <p id={descId} className="mt-1.5 text-sm leading-relaxed text-slate-600">
                 Move value to <strong className="text-slate-900">Solana</strong> without sending people to an external
-                bridge tab. Simulate a happy path here, or open the real LI.FI widget—the same pattern you would embed
+                bridge tab. Simulate a happy path here, or open the real LI.FI widget. The same pattern you would embed
                 next to a level, paywall, clip checkout, or other gated step. In the terminal you get live quotes, fees,
                 and route steps before you sign.
               </p>

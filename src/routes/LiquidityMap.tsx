@@ -84,7 +84,7 @@ export function LiquidityMap() {
         <div className="st-card-inner border-b border-slate-100 px-4 py-3 sm:px-6">
           <p className="text-xs font-medium uppercase tracking-wider text-slate-500">Reference</p>
           <p className="mt-1 text-sm text-slate-600">
-            High-level diagram only—available routes change as LI.FI adds or updates integrations.
+            High-level diagram only. Available routes change as LI.FI adds or updates integrations.
           </p>
         </div>
         <div className="st-card-inner p-4 sm:p-6">
@@ -132,14 +132,8 @@ export function LiquidityMap() {
               balances and simulations under load.
             </p>
             <p className="mt-4 text-xs text-slate-500">
-              Env wiring lives on{' '}
-              <Link
-                to="/developers"
-                className="font-medium text-slate-800 underline decoration-slate-300 underline-offset-2 hover:decoration-slate-500"
-              >
-                Integration
-              </Link>
-              .
+              Env wiring: copy <code className="st-code">.env.example</code> to <code className="st-code">.env</code> at
+              the project root and set integrator plus RPC URLs (see LI.FI widget docs for production guidance).
             </p>
           </div>
         </div>

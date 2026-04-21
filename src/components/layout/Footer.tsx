@@ -17,7 +17,7 @@ export function Footer() {
             <span className="text-lg font-semibold tracking-tight text-slate-900">Solstice Terminal</span>
           </div>
           <p className="text-sm leading-relaxed text-slate-600">
-            Non-custodial UI on top of LI.FI routing—you always hold the signing keys. Fund-session flows are meant to
+            Non-custodial UI on top of LI.FI routing: you always hold the signing keys. Fund-session flows are meant to
             sit beside real products (games, media, passes, sites), not only demos. Built for the LI.FI × Solana Frontier
             track; verify every transaction in your wallet before you approve.
           </p>

@@ -4,7 +4,7 @@ type NavItem = {
   to: string
   label: string
   end?: boolean
-  /** Same-origin static page (not a React Router path) — use full navigation */
+  /** Same-origin static page (not a React Router path); use full navigation */
   native?: boolean
 }
 
@@ -16,7 +16,6 @@ const groups: { title: string; items: NavItem[] }[] = [
       { to: '/terminal', label: 'Terminal' },
       { to: '/liquidity-map', label: 'Liquidity map' },
       { to: '/flows', label: 'User flows' },
-      { to: '/developers', label: 'Integration' },
     ],
   },
   {

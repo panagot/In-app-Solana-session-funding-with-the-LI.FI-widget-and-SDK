@@ -25,10 +25,10 @@ export function AppShell({ children }: PropsWithChildren) {
         Skip to main content
       </a>
 
-      <header className="sticky top-0 z-50 flex h-14 shrink-0 items-center gap-3 border-b border-slate-200/90 bg-white/90 px-4 backdrop-blur-xl lg:hidden">
+      <header className="sticky top-0 z-50 flex min-h-14 shrink-0 items-start gap-3 border-b border-slate-200/90 bg-white/90 px-4 py-2.5 backdrop-blur-xl lg:hidden">
         <button
           type="button"
-          className="st-focus inline-flex h-10 w-10 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-800 transition hover:border-slate-300 hover:bg-white"
+          className="st-focus mt-0.5 inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-xl border border-slate-200 bg-slate-50 text-slate-800 transition hover:border-slate-300 hover:bg-white"
           aria-label="Open navigation"
           aria-expanded={sidebarOpen}
           aria-controls="site-sidebar"
@@ -38,15 +38,18 @@ export function AppShell({ children }: PropsWithChildren) {
         </button>
         <Link
           to="/"
-          className="min-w-0 flex-1 truncate text-sm font-semibold tracking-tight text-slate-900 transition hover:text-slate-700"
+          className="min-w-0 flex-1 text-sm font-semibold tracking-tight text-slate-900 transition hover:text-slate-700"
         >
-          Solstice Terminal
+          <span className="block truncate">Solstice Terminal</span>
+          <span className="mt-0.5 block text-[10px] font-normal leading-snug text-slate-600">
+            Fund Solana for this visit, without sending people to a bridge tab.
+          </span>
         </Link>
         <a
           href="https://docs.li.fi"
           target="_blank"
           rel="noopener noreferrer"
-          className="st-focus shrink-0 rounded-full border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-medium text-slate-700 transition hover:border-slate-300 hover:text-slate-900"
+          className="st-focus mt-0.5 shrink-0 rounded-full border border-slate-200 bg-white px-2.5 py-1.5 text-xs font-medium text-slate-700 transition hover:border-slate-300 hover:text-slate-900"
         >
           Docs
         </a>
@@ -67,9 +70,7 @@ export function AppShell({ children }: PropsWithChildren) {
           } ${collapsed ? 'lg:w-[4.25rem]' : 'lg:w-60'}`}
         >
           <div className="hidden border-b border-slate-200/90 lg:block">
-            <div
-              className={`flex items-center gap-2 px-2 py-2.5 ${collapsed ? 'flex-col' : 'justify-between'}`}
-            >
+            <div className={`px-2 py-2.5 ${collapsed ? 'flex flex-col items-center gap-2' : 'space-y-1.5'}`}>
               {collapsed ? (
                 <Link
                   to="/"
@@ -79,35 +80,40 @@ export function AppShell({ children }: PropsWithChildren) {
                   <span className="h-2 w-2 rounded-full bg-slate-800 ring-2 ring-slate-800/15" />
                 </Link>
               ) : (
-                <Link
-                  to="/"
-                  className="group flex min-w-0 flex-1 items-center gap-2 rounded-xl py-1 font-semibold tracking-tight text-slate-900 transition hover:text-slate-700"
-                >
-                  <span className="relative flex h-2.5 w-2.5 shrink-0">
-                    <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-slate-400/25 opacity-50" />
-                    <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-slate-800 ring-2 ring-slate-800/12" />
-                  </span>
-                  <span className="truncate text-sm">
-                    Solstice <span className="text-slate-500">Terminal</span>
-                  </span>
-                </Link>
+                <>
+                  <div className="flex items-start justify-between gap-2">
+                    <Link
+                      to="/"
+                      className="group flex min-w-0 flex-1 items-center gap-2 rounded-xl py-1 font-semibold tracking-tight text-slate-900 transition hover:text-slate-700"
+                    >
+                      <span className="relative flex h-2.5 w-2.5 shrink-0">
+                        <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-slate-400/25 opacity-50" />
+                        <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-slate-800 ring-2 ring-slate-800/12" />
+                      </span>
+                      <span className="truncate text-sm">
+                        Solstice <span className="text-slate-500">Terminal</span>
+                      </span>
+                    </Link>
+                    <div className="flex shrink-0 items-center gap-1.5">
+                      <span className="hidden items-center gap-1 rounded-full border border-emerald-200 bg-emerald-50 px-2 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-wide text-emerald-800 xl:inline-flex">
+                        <span className="h-1 w-1 animate-pulse rounded-full bg-emerald-500" />
+                        Mainnet
+                      </span>
+                      <a
+                        href="https://docs.li.fi"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="st-focus rounded-full border border-slate-200 bg-white px-2 py-1 text-[10px] font-medium text-slate-600 transition hover:border-slate-300 hover:text-slate-900"
+                      >
+                        Docs
+                      </a>
+                    </div>
+                  </div>
+                  <p className="text-[11px] leading-snug text-slate-600">
+                    Fund Solana for this visit, without sending people to a bridge tab.
+                  </p>
+                </>
               )}
-              {!collapsed ? (
-                <div className="flex shrink-0 items-center gap-1.5">
-                  <span className="hidden items-center gap-1 rounded-full border border-emerald-200 bg-emerald-50 px-2 py-0.5 font-mono text-[9px] font-semibold uppercase tracking-wide text-emerald-800 xl:inline-flex">
-                    <span className="h-1 w-1 animate-pulse rounded-full bg-emerald-500" />
-                    Mainnet
-                  </span>
-                  <a
-                    href="https://docs.li.fi"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="st-focus rounded-full border border-slate-200 bg-white px-2 py-1 text-[10px] font-medium text-slate-600 transition hover:border-slate-300 hover:text-slate-900"
-                  >
-                    Docs
-                  </a>
-                </div>
-              ) : null}
             </div>
             <div className="flex items-center justify-end border-t border-slate-100 px-2 py-1.5">
               <button

@@ -102,7 +102,7 @@ export function LiFiTerminal() {
               </div>
             ) : (
               <p className="mt-4 text-xs leading-relaxed text-slate-500">
-                No <code className="st-code">?intent=</code> in the URL — the widget starts from its defaults.
+                No <code className="st-code">?intent=</code> in the URL, so the widget starts from its defaults.
               </p>
             )}
           </div>
@@ -156,12 +156,12 @@ export function LiFiTerminal() {
           <div className="st-card-inner flex flex-wrap items-center justify-between gap-2 border-b border-slate-100 px-3 py-2.5 sm:px-4">
             <div>
               <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-500">Live widget</p>
-              <p className="text-xs text-slate-600">LI.FI UI below — connect and route in place.</p>
+              <p className="text-xs text-slate-600">LI.FI UI below: connect and route in place.</p>
             </div>
           </div>
           <div className="st-card-inner border-b border-slate-100 bg-slate-50/90 px-3 py-3 text-xs leading-relaxed text-slate-600 sm:px-4">
             <strong className="text-slate-800">Non-custodial.</strong> LI.FI finds routes and liquidity; you approve
-            each transaction in your own wallet—nothing moves without your signature. Check every amount, fee, and hop
+            each transaction in your own wallet. Nothing moves without your signature. Check every amount, fee, and hop
             in the widget before you confirm.{' '}
             <a
               href="https://docs.li.fi/"

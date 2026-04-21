@@ -30,7 +30,7 @@ export function Support() {
             </li>
             <li className="flex gap-3 rounded-lg border border-amber-100 bg-amber-50/80 px-3 py-2.5">
               <span className="shrink-0 font-mono text-amber-700">!</span>
-              <span>Slippage and minimum-received values exist for a reason — review them before signing.</span>
+              <span>Slippage and minimum-received values exist for a reason. Review them before signing.</span>
             </li>
             <li className="flex gap-3 rounded-lg border border-amber-100 bg-amber-50/80 px-3 py-2.5">
               <span className="shrink-0 font-mono text-amber-700">!</span>
@@ -87,10 +87,10 @@ export function Support() {
       </section>
 
       <section className="rounded-2xl border border-dashed border-slate-200 bg-slate-50/80 px-5 py-5 sm:px-6">
-        <p className="text-sm font-medium text-slate-900">Hackathon / judging</p>
+        <p className="text-sm font-medium text-slate-900">Suggested walkthrough</p>
         <p className="mt-2 text-sm leading-relaxed text-slate-600">
           Follow the README to run locally, then walk <strong className="font-medium text-slate-800">Home → Fund session → Terminal</strong>{' '}
-          for the full demo path. The Neon Drift sample is intentionally generic—map it to your own game, video, or web
+          for the full demo path. The Neon Drift sample is intentionally generic; map it to your own game, video, or web
           product. On Home, add <code className="st-code">?tab=lifi</code> for the live LI.FI index view.
         </p>
       </section>

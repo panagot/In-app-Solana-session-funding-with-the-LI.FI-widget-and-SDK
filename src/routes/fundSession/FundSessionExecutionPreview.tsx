@@ -30,7 +30,7 @@ export function FundSessionExecutionPreview({ activeSim, onSimChange, playing, v
           </h2>
           <p className="mt-1 max-w-xl text-sm text-slate-600">
             Each tab shows a successful settlement as <strong className="font-medium text-slate-800">illustration only</strong>
-            —log lines, receipt, and balances are not on-chain. Replay streams the steps the way you could surface them
+            . Log lines, receipt, and balances are not on-chain. Replay streams the steps the way you could surface them
             beside a gate; use Terminal for live LI.FI quotes and signing.
           </p>
         </div>
@@ -114,7 +114,7 @@ export function FundSessionExecutionPreview({ activeSim, onSimChange, playing, v
                 {settled || (playing && visibleStepCount >= total) ? (
                   <li className="flex gap-2 border-l-2 border-emerald-500 pl-2 text-emerald-900">
                     <span className="shrink-0 text-emerald-700">ok</span>
-                    <span>Settlement complete — user can return to your app or stream.</span>
+                    <span>Settlement complete. User can return to your app or stream.</span>
                   </li>
                 ) : null}
               </ul>

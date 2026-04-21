@@ -16,7 +16,7 @@ Copy **everything below the line** into a new chat. Replace nothing unless your 
 
 **Recent changes (for second-pass reviews):** Home hero + 3-step strip; tab subtitles **Pattern preview** / **Live index** + `aria-label`s; **Preview** balances (not “mock”); Terminal **continuity** via `location.state.fromFundDemo`; modal **focus trap**; 44px touch targets; **LiFiWidget** card **non-custodial** trust strip + docs link; plain-English **Neon Drift** gate copy; execution previews labeled **preview**; README **Hackathon submission** table; `index.html` **SEO/OG** copy; `vercel.json` security headers.
 
-**Routes to know:** `/` (Home: tabs **Fund session** | **LI.FI**), `/terminal` (widget + quick intents, `?intent=fundSolana` etc.), plus `/developers`, `/support`, `/flows`, `/liquidity-map` as linked from the app shell.
+**Routes to know:** `/` (Home: tabs **Fund session** | **LI.FI**), `/terminal` (widget + quick intents, `?intent=fundSolana` etc.), plus `/support`, `/flows`, `/liquidity-map` as linked from the app shell.
 
 ---
 

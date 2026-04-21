@@ -77,7 +77,7 @@ export function OverviewPanel() {
       <PageHeader
         kicker="LI.FI · Solana frontier"
         title="Live LI.FI index for Solana work"
-        description="Same LI.FI engine as the fund-session pattern on Home—here you see live index data from the SDK (chains, tools, ecosystem chart). Open the terminal to connect a wallet, pick a quick intent, and review every step before you sign."
+        description="Same LI.FI engine as the fund-session pattern on Home. Here you see live index data from the SDK (chains, tools, ecosystem chart). Open the terminal to connect a wallet, pick a quick intent, and review every step before you sign."
         actions={
           <>
             <Link to="/terminal" className="st-btn-primary">
@@ -104,15 +104,15 @@ export function OverviewPanel() {
         </h2>
         <ul className="mt-3 grid gap-3 text-sm text-slate-700 sm:grid-cols-3">
           <li className="rounded-lg border border-slate-200/80 bg-white/90 px-3 py-2.5 leading-snug">
-            <strong className="text-slate-900">SDK index</strong> — <code className="st-code">getChains</code> /{' '}
+            <strong className="text-slate-900">SDK index</strong>: <code className="st-code">getChains</code> /{' '}
             <code className="st-code">getTools</code> against production LI.FI APIs (same calls you would use for dashboards).
           </li>
           <li className="rounded-lg border border-slate-200/80 bg-white/90 px-3 py-2.5 leading-snug">
-            <strong className="text-slate-900">Widget parity</strong> — Terminal embed uses the same integrator and{' '}
+            <strong className="text-slate-900">Widget parity</strong>: terminal embed uses the same integrator and{' '}
             <code className="st-code">?intent=</code> quick presets as this demo shell.
           </li>
           <li className="rounded-lg border border-slate-200/80 bg-white/90 px-3 py-2.5 leading-snug">
-            <strong className="text-slate-900">Shareable URLs</strong> — Deep-link home stats with{' '}
+            <strong className="text-slate-900">Shareable URLs</strong>: deep-link home stats with{' '}
             <Link to="/?tab=lifi" className="font-medium text-slate-900 underline decoration-slate-300 underline-offset-2 hover:decoration-slate-500">
               <code className="st-code">?tab=lifi</code>
             </Link>{' '}
@@ -126,7 +126,7 @@ export function OverviewPanel() {
           <div className="st-card-inner space-y-4 p-6 sm:p-8">
             <h2 className="text-lg font-semibold text-slate-900">Why this stack</h2>
             <p className="text-sm leading-relaxed text-slate-600">
-              You get a full product shell: navigation, education surfaces, and a live execution widget—not a bare embed.
+              You get a full product shell: navigation, education surfaces, and a live execution widget, not a bare embed.
               The overview below is powered by the same{' '}
               <code className="st-code">@lifi/sdk</code> calls you would use for dashboards and
               monitoring in production.
@@ -154,13 +154,13 @@ export function OverviewPanel() {
             </div>
             <p className="mt-3 text-sm leading-relaxed text-slate-600">
               Pulled with <code className="st-code">getChains</code> /{' '}
-              <code className="st-code">getTools</code>—the same API surface you would use for production telemetry.
+              <code className="st-code">getTools</code>, the same API surface you would use for production telemetry.
             </p>
             <dl className="mt-6 space-y-3 rounded-xl border border-slate-200/90 bg-slate-50 p-4 font-mono text-xs">
               <div className="flex items-center justify-between gap-4 border-b border-slate-200/80 pb-3">
                 <dt className="text-slate-600">Chains loaded</dt>
                 <dd className="tabular-nums text-slate-900">
-                  {chainsQuery.isLoading ? '…' : chainsQuery.isError ? '—' : chainSummary.total}
+                  {chainsQuery.isLoading ? '…' : chainsQuery.isError ? 'n/a' : chainSummary.total}
                 </dd>
               </div>
               <div className="flex items-start justify-between gap-4 pt-1">
@@ -259,15 +259,15 @@ export function OverviewPanel() {
             </h3>
             <ul className="mt-4 space-y-3 text-sm leading-relaxed text-slate-600">
               <li className="flex gap-2">
-                <span className="text-red-500">—</span>
+                <span className="text-red-500">•</span>
                 Maintain separate integrations per bridge and venue.
               </li>
               <li className="flex gap-2">
-                <span className="text-red-500">—</span>
+                <span className="text-red-500">•</span>
                 Inconsistent UX and status tracking across protocols.
               </li>
               <li className="flex gap-2">
-                <span className="text-red-500">—</span>
+                <span className="text-red-500">•</span>
                 Harder to swap routing when liquidity shifts.
               </li>
             </ul>

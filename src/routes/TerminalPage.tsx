@@ -21,14 +21,14 @@ export function TerminalPage() {
             <p>
               <strong className="text-sky-950">You continued from the Home fund-session preview.</strong> Use this page
               to fund <span className="font-medium">Solana for this visit</span> with the real{' '}
-              <span className="font-medium">LI.FI</span> widget—connect when you are ready, then compare live quotes,
+              <span className="font-medium">LI.FI</span> widget. Connect when you are ready, then compare live quotes,
               fees, and route steps before you sign.
             </p>
           ) : null}
           {intent && !fromHomeFundDemo ? (
             <p>
               <strong className="text-sky-950">Quick intent for funding Solana is active in the sidebar.</strong> The
-              widget is pre-filled from your URL—double-check amounts, fees, and hops in the LI.FI UI before confirming.
+              widget is pre-filled from your URL. Double-check amounts, fees, and hops in the LI.FI UI before confirming.
             </p>
           ) : null}
           {intent && fromHomeFundDemo ? (
@@ -71,7 +71,8 @@ export function TerminalPage() {
         <div className="st-card-inner flex flex-col gap-2 px-5 py-4 sm:flex-row sm:items-start sm:justify-between sm:gap-8 sm:px-6 sm:py-5">
           <p className="shrink-0 text-sm font-medium text-slate-900">Before you route</p>
           <p className="max-w-2xl text-sm leading-relaxed text-slate-600">
-            Connect a wallet in the widget, confirm chain and token details, then sign only what you expect.             Funds stay in wallets the user controls—LI.FI does not custody assets; it routes what they approve. The same embed pattern
+            Connect a wallet in the widget, confirm chain and token details, then sign only what you expect. Funds stay
+            in wallets the user controls. LI.FI does not custody assets; it routes what they approve. The same embed pattern
             fits games, video or streaming checkouts, web memberships, and other Solana-first surfaces. For the guided
             sample with preview-only balances, use{' '}
             <Link to="/" className="font-medium text-slate-900 underline decoration-slate-300 underline-offset-2 hover:decoration-slate-500">
@@ -91,15 +92,15 @@ export function TerminalPage() {
         </h2>
         <ul className="mt-3 grid gap-3 text-sm text-slate-700 sm:grid-cols-3">
           <li className="rounded-lg border border-slate-200/80 bg-white/90 px-3 py-2.5 leading-snug">
-            <strong className="text-slate-900">LiFiWidget</strong> — Production widget with{' '}
+            <strong className="text-slate-900">LiFiWidget</strong>: production widget with{' '}
             <code className="st-code">buildUrl</code> so wallet and route state stay reflected in the address bar.
           </li>
           <li className="rounded-lg border border-slate-200/80 bg-white/90 px-3 py-2.5 leading-snug">
-            <strong className="text-slate-900">Quick intents</strong> — Presets set <code className="st-code">?intent=</code>{' '}
-            (for example <code className="st-code">fundSolana</code>) so judges or support can reproduce a path from a link.
+            <strong className="text-slate-900">Quick intents</strong>: presets set <code className="st-code">?intent=</code>{' '}
+            (for example <code className="st-code">fundSolana</code>) so a shared link opens the same preset for you or your team.
           </li>
           <li className="rounded-lg border border-slate-200/80 bg-white/90 px-3 py-2.5 leading-snug">
-            <strong className="text-slate-900">RPC hooks</strong> — Optional <code className="st-code">sdkConfig.rpcUrls</code>{' '}
+            <strong className="text-slate-900">RPC hooks</strong>: optional <code className="st-code">sdkConfig.rpcUrls</code>{' '}
             from env mirror how you would harden reads in production.
           </li>
         </ul>
