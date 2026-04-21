@@ -35,7 +35,7 @@ export function FundSessionExecutionPreview({ activeSim, onSimChange, playing, v
         </div>
         <button
           type="button"
-          className="st-focus shrink-0 rounded-full border border-slate-300 bg-white px-3 py-2 text-xs font-semibold text-slate-800 shadow-sm transition hover:border-slate-400 hover:bg-slate-50 disabled:opacity-40"
+          className="st-focus min-h-[44px] shrink-0 rounded-full border border-slate-300 bg-white px-4 py-2 text-xs font-semibold text-slate-800 shadow-sm transition hover:border-slate-400 hover:bg-slate-50 disabled:opacity-40"
           onClick={onReplay}
           disabled={playing}
         >
@@ -57,7 +57,7 @@ export function FundSessionExecutionPreview({ activeSim, onSimChange, playing, v
               type="button"
               role="tab"
               aria-selected={on}
-              className={`st-focus rounded-lg px-3 py-2 text-sm font-semibold transition ${
+              className={`st-focus min-h-[44px] rounded-lg px-3 py-2 text-sm font-semibold transition ${
                 on
                   ? 'bg-white text-slate-900 shadow-sm ring-1 ring-slate-200/90 ring-inset'
                   : 'text-slate-600 hover:bg-white/70 hover:text-slate-900'
@@ -97,7 +97,7 @@ export function FundSessionExecutionPreview({ activeSim, onSimChange, playing, v
               <div className="border-b border-slate-200/90 px-3 py-2 text-[10px] uppercase tracking-wider text-slate-500">
                 li.fi · execution log
               </div>
-              <ul className="max-h-[240px] space-y-2 overflow-y-auto px-3 py-3 sm:max-h-none">
+              <ul className="max-h-[240px] space-y-2 overflow-x-auto overflow-y-auto px-3 py-3 sm:max-h-none">
                 {stepsShown.map((s, i) => (
                   <li key={i} className="flex gap-2 border-l-2 border-slate-300 pl-2">
                     <span className="shrink-0 text-slate-500">{s.t}</span>
@@ -121,7 +121,11 @@ export function FundSessionExecutionPreview({ activeSim, onSimChange, playing, v
 
             <p className="text-xs text-slate-500">{profile.footnote}</p>
 
-            <Link to={profile.intentPath} className="st-btn-primary inline-flex text-sm">
+            <Link
+              to={profile.intentPath}
+              state={{ fromFundDemo: true }}
+              className="st-btn-primary inline-flex min-h-[44px] items-center justify-center text-sm"
+            >
               Open this preset in terminal
             </Link>
           </div>

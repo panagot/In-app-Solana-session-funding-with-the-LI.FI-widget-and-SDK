@@ -1,10 +1,43 @@
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useSearchParams } from 'react-router-dom'
 import { PageHeader } from '../components/ui/PageHeader'
 import { LiFiTerminal } from '../features/lifi/LiFiTerminal'
-
+import { parseQuickIntentParam } from '../features/lifi/widgetBaseConfig'
 export function TerminalPage() {
+  const location = useLocation()
+  const [searchParams] = useSearchParams()
+  const intent = parseQuickIntentParam(searchParams.get('intent'))
+  const fromHomeFundDemo = Boolean(
+    (location.state as { fromFundDemo?: boolean } | null)?.fromFundDemo,
+  )
+
   return (
     <div className="space-y-10 lg:space-y-12">
+      {fromHomeFundDemo || intent ? (
+        <div
+          className="rounded-2xl border border-sky-200/90 bg-sky-50/90 px-4 py-3.5 text-sm leading-relaxed text-sky-950 sm:px-5"
+          role="status"
+        >
+          {fromHomeFundDemo ? (
+            <p>
+              <strong className="text-sky-950">You continued from the Home fund-session preview.</strong> Below is the
+              real <span className="font-medium">LI.FI</span> widget—connect your wallet when you are ready. Compare
+              live quotes, fees, and route steps before you sign anything.
+            </p>
+          ) : null}
+          {intent && !fromHomeFundDemo ? (
+            <p>
+              <strong className="text-sky-950">Quick intent is active in the sidebar.</strong> The widget is pre-filled
+              from your URL—double-check amounts, fees, and hops in the LI.FI UI before confirming.
+            </p>
+          ) : null}
+          {intent && fromHomeFundDemo ? (
+            <p className="mt-2 border-t border-sky-200/80 pt-2 text-sky-900">
+              Active preset: <code className="st-code">{intent}</code>
+            </p>
+          ) : null}
+        </div>
+      ) : null}
+
       <PageHeader
         kicker="Execution"
         title="Cross-chain terminal"
@@ -39,7 +72,7 @@ export function TerminalPage() {
           <p className="max-w-2xl text-sm leading-relaxed text-slate-600">
             Connect a wallet in the widget, confirm chain and token details, then sign only what you expect. The same
             embed pattern fits games, video or streaming checkouts, web memberships, and other Solana-first surfaces.
-            For the guided sample with mock balances, use{' '}
+            For the guided sample with preview-only balances, use{' '}
             <Link to="/" className="font-medium text-slate-900 underline decoration-slate-300 underline-offset-2 hover:decoration-slate-500">
               Home → Fund session
             </Link>

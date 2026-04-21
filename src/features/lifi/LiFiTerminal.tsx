@@ -79,7 +79,7 @@ export function LiFiTerminal() {
   }, [setSearchParams])
 
   return (
-    <div className="grid gap-6 lg:grid-cols-[minmax(280px,340px)_1fr] lg:gap-8">
+    <div className="grid min-w-0 gap-6 overflow-x-auto lg:grid-cols-[minmax(280px,340px)_1fr] lg:gap-8 lg:overflow-x-visible">
       <aside className="st-card h-fit lg:sticky lg:top-24">
         <div className="st-card-inner space-y-5 p-5 sm:p-6">
           <p className="sr-only" aria-live="polite" aria-atomic="true">
@@ -114,7 +114,7 @@ export function LiFiTerminal() {
                   <button
                     type="button"
                     onClick={() => applyIntent(item.id)}
-                    className={`st-focus group w-full rounded-xl border px-3.5 py-3.5 text-left transition duration-200 ${
+                    className={`st-focus group min-h-[44px] w-full rounded-xl border px-3.5 py-3.5 text-left transition duration-200 ${
                       active
                         ? 'border-slate-300 bg-white shadow-sm ring-1 ring-slate-900/[0.06]'
                         : 'border-slate-200 bg-slate-50/80 hover:border-slate-300 hover:bg-white'
@@ -145,7 +145,7 @@ export function LiFiTerminal() {
           <button
             type="button"
             onClick={clearIntent}
-            className="st-focus w-full rounded-xl border border-dashed border-slate-300 py-2.5 text-xs font-medium text-slate-600 transition hover:border-slate-400 hover:bg-slate-50 hover:text-slate-900"
+            className="st-focus min-h-[44px] w-full rounded-xl border border-dashed border-slate-300 py-2.5 text-xs font-medium text-slate-600 transition hover:border-slate-400 hover:bg-slate-50 hover:text-slate-900"
           >
             Reset to widget defaults
           </button>

@@ -1,5 +1,5 @@
 import { useCallback, useMemo, useRef, type KeyboardEvent } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { Link, useSearchParams } from 'react-router-dom'
 import { FundSessionDemo } from './FundSessionDemo'
 import { OverviewPanel } from './OverviewPanel'
 
@@ -55,9 +55,58 @@ export function HomePage() {
 
   return (
     <div className="space-y-6 lg:space-y-8">
-      <div className="max-w-3xl rounded-2xl border border-slate-200/90 bg-slate-50/80 px-4 py-3.5 sm:px-5 sm:py-4">
-        <p className="text-sm leading-relaxed text-slate-800">
-          Let people stay inside your app while you move funds onto Solana for this visit.
+      <div className="max-w-3xl space-y-4 rounded-2xl border border-slate-200/90 bg-slate-50/80 px-4 py-4 sm:px-5 sm:py-5">
+        <div className="space-y-2">
+          <p className="text-base font-semibold leading-snug text-slate-900">
+            Fund Solana for this visit—without sending people to a bridge tab.
+          </p>
+          <p className="text-sm leading-relaxed text-slate-600">
+            Your surface needs SOL or USDC on Solana; their spending balance often sits on Base, Ethereum, or another
+            chain. Embed LI.FI in your UI so they top up and land back on the same screen.
+          </p>
+        </div>
+        <ol className="grid gap-3 sm:grid-cols-3">
+          {[
+            { n: '1', t: 'Need on Solana', d: 'Fees, gate USDC, or checkout—your rules.' },
+            { n: '2', t: 'Fund in your app', d: 'Short step with LI.FI quotes and routes.' },
+            { n: '3', t: 'Continue', d: 'Same session; balances meet your checks.' },
+          ].map((step) => (
+            <li
+              key={step.n}
+              className="flex gap-3 rounded-xl border border-slate-200/80 bg-white/90 px-3 py-3 shadow-sm"
+            >
+              <span
+                className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-slate-900 font-mono text-sm font-bold text-white"
+                aria-hidden
+              >
+                {step.n}
+              </span>
+              <span className="min-w-0">
+                <span className="block text-sm font-semibold text-slate-900">{step.t}</span>
+                <span className="mt-0.5 block text-xs leading-snug text-slate-600">{step.d}</span>
+              </span>
+            </li>
+          ))}
+        </ol>
+        <p className="text-xs leading-relaxed text-slate-500">
+          Routing and execution use{' '}
+          <a
+            href="https://docs.li.fi/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="font-medium text-slate-700 underline decoration-slate-300 underline-offset-2 hover:decoration-slate-500"
+          >
+            LI.FI
+          </a>
+          . You stay in control of what you embed; users always sign in their own wallet. Open the real widget on{' '}
+          <Link
+            to="/terminal?intent=fundSolana"
+            state={{ fromFundDemo: true }}
+            className="font-medium text-slate-700 underline decoration-slate-300 underline-offset-2 hover:decoration-slate-500"
+          >
+            Terminal
+          </Link>
+          .
         </p>
       </div>
 
@@ -76,7 +125,7 @@ export function HomePage() {
           aria-selected={tab === 'session'}
           aria-controls="home-panel-session"
           tabIndex={tab === 'session' ? 0 : -1}
-          className={`st-focus rounded-full px-4 py-2 text-sm font-semibold transition ${
+          className={`st-focus min-h-[44px] rounded-full px-4 py-2 text-sm font-semibold transition ${
             tab === 'session'
               ? 'bg-slate-900 text-white shadow-sm'
               : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
@@ -93,7 +142,7 @@ export function HomePage() {
           aria-selected={tab === 'lifi'}
           aria-controls="home-panel-lifi"
           tabIndex={tab === 'lifi' ? 0 : -1}
-          className={`st-focus rounded-full px-4 py-2 text-sm font-semibold transition ${
+          className={`st-focus min-h-[44px] rounded-full px-4 py-2 text-sm font-semibold transition ${
             tab === 'lifi'
               ? 'bg-slate-900 text-white shadow-sm'
               : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
