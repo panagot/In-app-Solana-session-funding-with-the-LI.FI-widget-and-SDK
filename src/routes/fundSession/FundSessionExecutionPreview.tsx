@@ -26,11 +26,12 @@ export function FundSessionExecutionPreview({ activeSim, onSimChange, playing, v
       <div className="flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <h2 id="exec-preview-title" className="text-base font-semibold text-slate-900">
-            Execution previews <span className="text-slate-500">(simulated)</span>
+            Execution previews <span className="text-slate-500">(preview)</span>
           </h2>
           <p className="mt-1 max-w-xl text-sm text-slate-600">
-            Each tab shows a successful settlement: live-style log, receipt lines, and post-fund balances. Replay streams
-            the steps the way you would surface them beside any gated experience.
+            Each tab shows a successful settlement as <strong className="font-medium text-slate-800">illustration only</strong>
+            —log lines, receipt, and balances are not on-chain. Replay streams the steps the way you could surface them
+            beside a gate; use Terminal for live LI.FI quotes and signing.
           </p>
         </div>
         <button

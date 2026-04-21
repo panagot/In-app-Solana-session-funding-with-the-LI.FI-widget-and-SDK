@@ -124,15 +124,23 @@ export function HomePage() {
           id="home-tab-session"
           aria-selected={tab === 'session'}
           aria-controls="home-panel-session"
+          aria-label="Fund session — pattern preview with Neon Drift demo (not live quotes)"
           tabIndex={tab === 'session' ? 0 : -1}
-          className={`st-focus min-h-[44px] rounded-full px-4 py-2 text-sm font-semibold transition ${
+          className={`st-focus flex min-h-[44px] flex-col items-center justify-center gap-0.5 rounded-full px-4 py-2 text-center transition ${
             tab === 'session'
               ? 'bg-slate-900 text-white shadow-sm'
               : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
           }`}
           onClick={() => setTab('session')}
         >
-          Fund session
+          <span className="text-sm font-semibold leading-tight">Fund session</span>
+          <span
+            className={`text-[10px] font-medium leading-tight ${
+              tab === 'session' ? 'text-white/75' : 'text-slate-500'
+            }`}
+          >
+            Pattern preview
+          </span>
         </button>
         <button
           ref={lifiTabRef}
@@ -141,15 +149,23 @@ export function HomePage() {
           id="home-tab-lifi"
           aria-selected={tab === 'lifi'}
           aria-controls="home-panel-lifi"
+          aria-label="LI.FI — live index stats and ecosystem view from the SDK"
           tabIndex={tab === 'lifi' ? 0 : -1}
-          className={`st-focus min-h-[44px] rounded-full px-4 py-2 text-sm font-semibold transition ${
+          className={`st-focus flex min-h-[44px] flex-col items-center justify-center gap-0.5 rounded-full px-4 py-2 text-center transition ${
             tab === 'lifi'
               ? 'bg-slate-900 text-white shadow-sm'
               : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900'
           }`}
           onClick={() => setTab('lifi')}
         >
-          LI.FI
+          <span className="text-sm font-semibold leading-tight">LI.FI</span>
+          <span
+            className={`text-[10px] font-medium leading-tight ${
+              tab === 'lifi' ? 'text-white/75' : 'text-slate-500'
+            }`}
+          >
+            Live index
+          </span>
         </button>
       </div>
 

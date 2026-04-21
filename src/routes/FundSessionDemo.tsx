@@ -209,7 +209,9 @@ export function FundSessionDemo() {
         </div>
 
         <div className="border-b border-slate-200/90 bg-slate-50/90 px-4 py-3 sm:px-5">
-          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-slate-500">Sample experience</p>
+          <p className="font-mono text-[10px] font-bold uppercase tracking-[0.22em] text-slate-500">
+            Sample experience · fictional surface
+          </p>
           <div className="mt-1.5 flex flex-wrap items-center justify-between gap-3">
             <div className="flex flex-wrap items-center gap-2.5">
               <span className="h-2 w-2 rounded-full bg-slate-800 ring-2 ring-slate-800/12" aria-hidden />
@@ -265,15 +267,20 @@ export function FundSessionDemo() {
             />
             <div className="relative z-[1] px-6 py-7 text-center sm:py-8">
               <h2 className="mb-1.5 text-sm font-bold uppercase tracking-[0.08em] text-slate-500">Your surface</h2>
-              <p className="mx-auto mb-3 max-w-[300px] text-sm leading-snug text-slate-600">
+              <p className="mx-auto mb-3 max-w-[320px] text-sm leading-snug text-slate-600">
                 {gateUnlocked
-                  ? 'Requirements met. Users can continue — fees and gate USDC are covered on Solana.'
-                  : 'Continue is disabled until Solana balances meet your rule: ~0.02 SOL for fees plus 10 USDC for the gate.'}
+                  ? 'Solana side looks good for this demo—enough SOL for fees and enough USDC for the paywall.'
+                  : 'Continue stays off until this surface sees enough on Solana: about 0.02 SOL for fees and 10 USDC for the example paywall (your real app would set its own numbers).'}
               </p>
               <div className="flex flex-wrap justify-center gap-2">
                 <button
                   type="button"
                   disabled={!gateUnlocked}
+                  aria-label={
+                    gateUnlocked
+                      ? 'Continue — Solana gate requirements met'
+                      : 'Continue — locked until about 0.02 SOL plus 10 USDC on Solana for this demo gate'
+                  }
                   className={`min-h-[44px] rounded-full px-5 py-2.5 text-sm font-semibold transition ${
                     gateUnlocked
                       ? 'st-focus animate-gate-unlock bg-gradient-to-b from-[#0077ed] to-[#0058b0] text-white shadow-[0_4px_14px_rgba(0,113,227,0.35)] ring-2 ring-emerald-300/45 ring-offset-2 ring-offset-white hover:brightness-105'
@@ -299,13 +306,14 @@ export function FundSessionDemo() {
           <div className="flex flex-col gap-4 bg-slate-50/80 p-4 sm:p-5">
             <div>
               <h3 className="font-mono text-[10px] font-bold uppercase tracking-[0.18em] text-slate-500">
-                Session rule
+                What this demo checks
               </h3>
               <div className="mt-2 rounded-2xl border border-slate-200/90 bg-white p-4 shadow-sm">
-                <strong className="block text-sm text-slate-900">On-chain gate</strong>
+                <strong className="block text-sm text-slate-900">Example paywall on Solana</strong>
                 <p className="mt-1.5 text-sm leading-relaxed text-slate-600">
-                  Pay 10 USDC on <span className="font-medium text-slate-900">Solana</span> + keep a small SOL buffer
-                  for fees.
+                  Your product logic might require <span className="font-medium text-slate-900">10 USDC</span> on
+                  Solana plus a little <span className="font-medium text-slate-900">SOL</span> for fees—same idea as a
+                  game gate, clip purchase, or membership check.
                 </p>
               </div>
             </div>
@@ -317,9 +325,10 @@ export function FundSessionDemo() {
               </div>
             ) : (
               <div className="rounded-xl border border-dashed border-red-200 bg-red-50 px-3.5 py-3 text-xs leading-relaxed text-red-950">
-                <strong className="text-red-800">Why it’s blocked:</strong> spending balance is on{' '}
-                <strong>Base</strong>, while this surface checks <strong>Solana USDC</strong>. Run a simulation to
-                completion below, or open <strong>Fund session</strong> to route with LI.FI.
+                <strong className="text-red-800">Why Continue is off:</strong> in this story the user still has spend
+                money on <strong>Base</strong>, but this screen only looks at <strong>Solana</strong>. Run a simulation
+                below to see the happy path, or use <strong>Fund session…</strong> then <strong>Open in terminal</strong>{' '}
+                for the real LI.FI widget.
               </div>
             )}
           </div>

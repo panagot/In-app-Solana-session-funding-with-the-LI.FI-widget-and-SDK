@@ -19,15 +19,16 @@ export function TerminalPage() {
         >
           {fromHomeFundDemo ? (
             <p>
-              <strong className="text-sky-950">You continued from the Home fund-session preview.</strong> Below is the
-              real <span className="font-medium">LI.FI</span> widget—connect your wallet when you are ready. Compare
-              live quotes, fees, and route steps before you sign anything.
+              <strong className="text-sky-950">You continued from the Home fund-session preview.</strong> Use this page
+              to fund <span className="font-medium">Solana for this visit</span> with the real{' '}
+              <span className="font-medium">LI.FI</span> widget—connect when you are ready, then compare live quotes,
+              fees, and route steps before you sign.
             </p>
           ) : null}
           {intent && !fromHomeFundDemo ? (
             <p>
-              <strong className="text-sky-950">Quick intent is active in the sidebar.</strong> The widget is pre-filled
-              from your URL—double-check amounts, fees, and hops in the LI.FI UI before confirming.
+              <strong className="text-sky-950">Quick intent for funding Solana is active in the sidebar.</strong> The
+              widget is pre-filled from your URL—double-check amounts, fees, and hops in the LI.FI UI before confirming.
             </p>
           ) : null}
           {intent && fromHomeFundDemo ? (
@@ -70,9 +71,10 @@ export function TerminalPage() {
         <div className="st-card-inner flex flex-col gap-2 px-5 py-4 sm:flex-row sm:items-start sm:justify-between sm:gap-8 sm:px-6 sm:py-5">
           <p className="shrink-0 text-sm font-medium text-slate-900">Before you route</p>
           <p className="max-w-2xl text-sm leading-relaxed text-slate-600">
-            Connect a wallet in the widget, confirm chain and token details, then sign only what you expect. The same
-            embed pattern fits games, video or streaming checkouts, web memberships, and other Solana-first surfaces.
-            For the guided sample with preview-only balances, use{' '}
+            Connect a wallet in the widget, confirm chain and token details, then sign only what you expect. Funds
+            stay under the user’s keys—LI.FI does not custody assets; it routes what you approve. The same embed pattern
+            fits games, video or streaming checkouts, web memberships, and other Solana-first surfaces. For the guided
+            sample with preview-only balances, use{' '}
             <Link to="/" className="font-medium text-slate-900 underline decoration-slate-300 underline-offset-2 hover:decoration-slate-500">
               Home → Fund session
             </Link>

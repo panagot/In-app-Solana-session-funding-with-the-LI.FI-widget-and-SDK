@@ -159,6 +159,19 @@ export function LiFiTerminal() {
               <p className="text-xs text-slate-600">LI.FI UI below — connect and route in place.</p>
             </div>
           </div>
+          <div className="st-card-inner border-b border-slate-100 bg-slate-50/90 px-3 py-3 text-xs leading-relaxed text-slate-600 sm:px-4">
+            <strong className="text-slate-800">Non-custodial.</strong> LI.FI aggregates routes and liquidity; you approve
+            each transaction in your own wallet—nothing is moved without your signature. Review every amount, fee, and
+            hop in the widget before confirming.{' '}
+            <a
+              href="https://docs.li.fi/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-medium text-slate-800 underline decoration-slate-300 underline-offset-2 hover:decoration-slate-500"
+            >
+              LI.FI documentation
+            </a>
+          </div>
           <div className="st-card-inner min-h-[520px] w-full p-1 sm:p-2">
             <LiFiWidget key={intent ?? 'default'} integrator={INTEGRATOR} config={config} />
           </div>

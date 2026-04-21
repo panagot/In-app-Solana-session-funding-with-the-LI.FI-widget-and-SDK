@@ -37,7 +37,7 @@ export const SIMULATION_PROFILES: Record<SimKey, SimProfile> = {
       'status: SETTLED',
       'src_chain: Base (8453) · dst_chain: Solana',
       'tooling: LI.FI widget · integrator: solstice-terminal',
-      'tx_sig_sol: 5rQs…9kVm (simulated)',
+      'tx_sig_sol: 5rQs…9kVm (preview — not an on-chain tx)',
     ],
     balancesAfter: [
       { label: 'SOL', value: '0.024', ok: true },
@@ -65,8 +65,8 @@ export const SIMULATION_PROFILES: Record<SimKey, SimProfile> = {
     receiptLines: [
       'status: SETTLED',
       'src_chain: Ethereum · dst_chain: Solana',
-      'savings_vs_fast: ~12% fee estimate (simulated)',
-      'tx_sig_eth: 0x8a2…c4d1 (simulated)',
+      'savings_vs_fast: ~12% fee estimate (preview)',
+      'tx_sig_eth: 0x8a2…c4d1 (preview — not an on-chain tx)',
     ],
     balancesAfter: [
       { label: 'SOL', value: '0.031', ok: true },
@@ -95,7 +95,7 @@ export const SIMULATION_PROFILES: Record<SimKey, SimProfile> = {
       'status: SETTLED',
       'route_score: 0.92 · hops: 3',
       'integrator: solstice-terminal',
-      'user_visible_steps: 4 (simulated)',
+      'user_visible_steps: 4 (preview)',
     ],
     balancesAfter: [
       { label: 'SOL', value: '0.022', ok: true },

@@ -77,7 +77,7 @@ export function OverviewPanel() {
       <PageHeader
         kicker="LI.FI · Solana frontier"
         title="Institutional-grade routing for Solana liquidity."
-        description="Solstice Terminal wraps the LI.FI widget and SDK so teams can move value across Solana, EVM, Bitcoin, and Sui without stitching bridges and DEXs by hand. This tab shows live index telemetry from the SDK; open the terminal to connect a wallet, pick a quick intent, and route with full transparency."
+        description="Same LI.FI engine as the fund-session pattern on Home—this tab focuses on live index telemetry from the SDK (chains, tools, ecosystem chart). Open the terminal to connect a wallet, pick a quick intent, and route with full transparency."
         actions={
           <>
             <Link to="/terminal" className="st-btn-primary">

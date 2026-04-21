@@ -49,6 +49,15 @@ simulation and balances in the widget, add `VITE_SOLANA_RPC_URL` and major EVM R
 
 Supported `intent` values: `fundSolana`, `exitSolana`, `solSwap`, `bridgePreview`.
 
+## Hackathon submission (quick reference)
+
+| Item | Link or note |
+|------|----------------|
+| **Live demo** | [Vercel deploy](https://in-app-solana-session-funding-with.vercel.app/) (set env in project settings from `.env.example`) |
+| **Source** | [GitHub repository](https://github.com/panagot/In-app-Solana-session-funding-with-the-LI.FI-widget-and-SDK) |
+| **What to show in ~60s** | Follow **60-second judge script** above: Home → Fund session → Terminal with `?intent=`; LI.FI tab for live index; mention **Proposal** at top of this README for the product thesis |
+| **LI.FI proof** | Real **LiFiWidget** on `/terminal`; Home card uses **preview** balances and simulated logs—call that out so judges distinguish demo vs widget |
+
 ## Stack
 
 - Vite + React 19 + TypeScript
