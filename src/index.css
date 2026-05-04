@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,11 +6,15 @@
 
 :root {
   color-scheme: light;
-  --st-bg: #fbfbfd;
+  --st-bg: #f8fafc;
   --st-panel: #ffffff;
-  --st-line: rgba(15, 23, 42, 0.06);
-  --st-accent: #0071e3;
-  --st-accent-dim: rgba(0, 113, 227, 0.1);
+  --st-line: rgba(15, 23, 42, 0.045);
+  --st-line-strong: rgba(15, 23, 42, 0.08);
+  --st-accent: #0ea5e9;
+  --st-accent-deep: #0284c7;
+  --st-accent-glow: rgba(14, 165, 233, 0.18);
+  --st-ink: #0f172a;
+  --st-ink-muted: #475569;
 }
 
 html,
@@ -22,22 +26,33 @@ body,
 body {
   margin: 0;
   background-color: var(--st-bg);
-  background-image: radial-gradient(
-      ellipse 100% 85% at 50% -30%,
-      rgba(15, 23, 42, 0.035),
-      transparent 55%
-    ),
-    linear-gradient(180deg, #ffffff 0%, var(--st-bg) 45%, #f5f5f7 100%);
-  color: #1d1d1f;
-  font-family:
-    -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'IBM Plex Sans', system-ui, sans-serif;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -10%, rgba(14, 165, 233, 0.12), transparent 60%),
+    radial-gradient(ellipse 60% 40% at 100% 30%, rgba(34, 211, 238, 0.06), transparent 60%),
+    linear-gradient(180deg, #ffffff 0%, var(--st-bg) 50%, #eef2f7 100%);
+  background-attachment: fixed;
+  color: var(--st-ink);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Text', system-ui, sans-serif;
+  font-feature-settings: 'cv02', 'cv03', 'cv04', 'cv11', 'ss01';
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  letter-spacing: -0.005em;
 }
 
 ::selection {
-  background: rgba(15, 23, 42, 0.12);
-  color: #0a0a0a;
+  background: rgba(14, 165, 233, 0.18);
+  color: #0c4a6e;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  letter-spacing: -0.03em;
 }
 
 /* Subtle grid; light, editorial */
@@ -55,7 +70,7 @@ body {
     linear-gradient(var(--st-line) 1px, transparent 1px),
     linear-gradient(90deg, var(--st-line) 1px, transparent 1px);
   background-size: 56px 56px;
-  mask-image: radial-gradient(ellipse 90% 75% at 50% 15%, black 18%, transparent 72%);
+  mask-image: radial-gradient(ellipse 90% 70% at 50% 14%, black 18%, transparent 78%);
   pointer-events: none;
 }
 
@@ -66,56 +81,155 @@ body {
 
 @layer components {
   .st-card {
-    @apply relative overflow-hidden rounded-2xl border border-slate-200/90 bg-white shadow-card backdrop-blur-sm;
+    @apply relative overflow-hidden rounded-2xl border border-slate-200/80 bg-white/95 backdrop-blur-sm transition-all duration-200;
     box-shadow:
-      0 1px 2px rgba(0, 0, 0, 0.04),
-      0 8px 24px rgba(0, 0, 0, 0.05);
+      0 1px 2px rgba(15, 23, 42, 0.04),
+      0 12px 32px rgba(15, 23, 42, 0.05);
+  }
+
+  .st-card-elevated {
+    @apply relative overflow-hidden rounded-2xl border border-slate-200/70 bg-white backdrop-blur transition-all duration-200;
+    box-shadow:
+      0 1px 2px rgba(15, 23, 42, 0.04),
+      0 4px 12px rgba(15, 23, 42, 0.04),
+      0 24px 56px -12px rgba(15, 23, 42, 0.1);
   }
 
   .st-card-inner {
     @apply relative;
   }
 
+  .st-card-glass {
+    @apply relative overflow-hidden rounded-2xl border border-white/60 bg-white/70 backdrop-blur-xl transition-all duration-200;
+    box-shadow:
+      0 1px 2px rgba(15, 23, 42, 0.04),
+      0 12px 32px rgba(15, 23, 42, 0.05);
+  }
+
   .st-kicker {
-    @apply inline-flex items-center gap-2 rounded-full border border-slate-200/90 bg-slate-50 px-3 py-1 font-mono text-[11px] font-semibold uppercase tracking-[0.18em] text-slate-600;
+    @apply inline-flex items-center gap-2 rounded-full border border-slate-200/90 bg-white/80 px-3 py-1 font-mono text-[10.5px] font-semibold uppercase tracking-[0.2em] text-slate-600 backdrop-blur;
+  }
+
+  .st-kicker-brand {
+    @apply inline-flex items-center gap-2 rounded-full border border-sky-200/70 bg-gradient-to-r from-sky-50 to-cyan-50/80 px-3 py-1 font-mono text-[10.5px] font-semibold uppercase tracking-[0.2em] text-sky-800 backdrop-blur;
   }
 
   .st-btn-primary {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white transition active:scale-[0.98];
-    background-image: linear-gradient(to bottom, #0077ed, #0071e3);
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 active:scale-[0.98];
+    background-image: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
     box-shadow:
-      0 1px 2px rgba(0, 0, 0, 0.1),
-      0 4px 14px rgba(0, 0, 0, 0.12);
+      0 1px 2px rgba(2, 132, 199, 0.18),
+      0 8px 24px rgba(14, 165, 233, 0.28),
+      inset 0 1px 0 rgba(255, 255, 255, 0.18);
   }
 
   .st-btn-primary:hover {
-    background-image: linear-gradient(to bottom, #0084ff, #0077ed);
+    background-image: linear-gradient(135deg, #0bb6ff 0%, #0392d9 100%);
     box-shadow:
-      0 2px 6px rgba(0, 0, 0, 0.12),
-      0 8px 20px rgba(0, 0, 0, 0.1);
+      0 2px 4px rgba(2, 132, 199, 0.2),
+      0 10px 28px rgba(14, 165, 233, 0.36),
+      inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    transform: translateY(-1px);
   }
 
   .st-btn-ghost {
-    @apply inline-flex items-center justify-center gap-2 rounded-full border border-slate-300 bg-white px-5 py-2.5 text-sm font-medium text-slate-800 shadow-sm transition hover:border-slate-400 hover:bg-slate-50 hover:text-slate-950;
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-slate-200 bg-white px-5 py-2.5 text-sm font-medium text-slate-800 shadow-sm transition-all duration-200 hover:-translate-y-px hover:border-slate-300 hover:bg-slate-50 hover:text-slate-950 hover:shadow-md;
+  }
+
+  .st-btn-dark {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white transition-all duration-200 active:scale-[0.98];
+    background-image: linear-gradient(180deg, #1e293b 0%, #0f172a 100%);
+    box-shadow:
+      0 1px 2px rgba(15, 23, 42, 0.2),
+      0 8px 22px rgba(15, 23, 42, 0.22),
+      inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  }
+
+  .st-btn-dark:hover {
+    background-image: linear-gradient(180deg, #334155 0%, #1e293b 100%);
+    transform: translateY(-1px);
   }
 
   .st-code {
-    @apply rounded-md border border-slate-200 bg-slate-100 px-1.5 py-0.5 font-mono text-[0.8em] text-slate-800;
+    @apply rounded-md border border-slate-200 bg-slate-50 px-1.5 py-0.5 font-mono text-[0.78em] text-slate-800;
   }
 
   .st-focus {
-    @apply outline-none ring-offset-2 ring-offset-white focus-visible:ring-2 focus-visible:ring-slate-400/90;
+    @apply outline-none ring-offset-2 ring-offset-white focus-visible:ring-2 focus-visible:ring-sky-400/80;
   }
 
-  /** Lighter panels nested under hero cards (execution previews) */
   .preview-panel {
     @apply relative overflow-hidden rounded-xl border border-slate-200/75 bg-white shadow-sm;
+  }
+
+  /** Pill nav: a polished segmented-control style for pills (e.g. tabs) */
+  .st-tab-pill {
+    @apply relative inline-flex items-center gap-2 rounded-xl px-3.5 py-2 text-sm font-medium transition-all duration-200;
+  }
+
+  .st-tab-pill-active {
+    @apply bg-white text-slate-900 shadow-sm ring-1 ring-slate-900/5;
+  }
+
+  .st-tab-pill-inactive {
+    @apply text-slate-600 hover:bg-white/60 hover:text-slate-900;
+  }
+
+  /** Stat tile with subtle gradient backdrop */
+  .st-stat {
+    @apply relative overflow-hidden rounded-2xl border border-slate-200/80 bg-gradient-to-br from-white to-slate-50/80 px-5 py-4 transition-all duration-200;
+  }
+
+  .st-stat:hover {
+    @apply border-slate-300/80 shadow-md;
+    transform: translateY(-2px);
+  }
+
+  /** Branded gradient text */
+  .st-gradient-text {
+    @apply bg-gradient-to-br from-slate-900 via-slate-700 to-slate-900 bg-clip-text text-transparent;
+  }
+
+  .st-gradient-text-brand {
+    @apply bg-gradient-to-br from-sky-600 via-cyan-500 to-sky-600 bg-clip-text text-transparent;
+  }
+
+  /** Decorative chip used in many places */
+  .st-chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-slate-200 bg-white px-2.5 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-wider text-slate-600;
+  }
+
+  .st-chip-emerald {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-emerald-200 bg-emerald-50 px-2.5 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-wider text-emerald-800;
+  }
+
+  .st-chip-brand {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-sky-200 bg-sky-50 px-2.5 py-0.5 font-mono text-[10px] font-semibold uppercase tracking-wider text-sky-800;
+  }
+
+  /** Ambient brand glow used behind hero/feature cards */
+  .st-brand-glow {
+    position: relative;
+  }
+
+  .st-brand-glow::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    z-index: 0;
+    background: radial-gradient(
+      ellipse 100% 60% at 50% 0%,
+      rgba(14, 165, 233, 0.12),
+      transparent 70%
+    );
+    pointer-events: none;
+    border-radius: inherit;
   }
 }
 
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+  scrollbar-color: rgba(15, 23, 42, 0.18) transparent;
 }
 
 *::-webkit-scrollbar {
@@ -124,25 +238,33 @@ body {
 }
 
 *::-webkit-scrollbar-thumb {
-  background: rgba(0, 0, 0, 0.15);
+  background: rgba(15, 23, 42, 0.14);
   border-radius: 99px;
   border: 2px solid transparent;
   background-clip: padding-box;
 }
 
 *::-webkit-scrollbar-thumb:hover {
-  background: rgba(0, 0, 0, 0.25);
+  background: rgba(15, 23, 42, 0.22);
   background-clip: padding-box;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-fade-up {
+  .animate-fade-up,
+  .animate-fade-in,
+  .animate-gate-unlock,
+  .animate-shimmer,
+  .animate-pulse-glow,
+  .animate-flow {
     animation: none !important;
     opacity: 1 !important;
     transform: none !important;
   }
 
-  .animate-gate-unlock {
-    animation: none !important;
+  .st-btn-primary:hover,
+  .st-btn-ghost:hover,
+  .st-btn-dark:hover,
+  .st-stat:hover {
+    transform: none !important;
   }
 }
